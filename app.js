@@ -16,6 +16,7 @@ $(()=> {
       let $country = incomingData.country;
       let $exchange = incomingData.exchange;
       let $name = incomingData.name;
+      let $symbol = incomingData.symbol;
       let $owners = incomingData.owners;
       let ownerNames= '';
 
@@ -32,8 +33,10 @@ $(()=> {
       } else if ($buttonValue == '2') {
         $div1.html(`Name: ${incomingData.name} <br/>`);
       } else if ($buttonValue == '3') {
+        $div1.html(`Symbol: ${incomingData.symbol} <br/>`);
 
       } else if ($buttonValue == '4') {
+        $div1.html(`OwnerNames: ${ownerNames} <br/>`);
 
       }
 
@@ -45,3 +48,18 @@ $(()=> {
 
   })
 })
+//
+
+$(function() {
+  setInterval(function() {
+    $('#carouseler .carousels').animate({'margin-left': '-=720px'}, 1000)
+  }, 3000)
+  //setInterval
+    //animate margin-left
+    //if it's last slide, go to position 1 (0px);
+
+    //listen for mouseenter and pause
+    //resume on mouseLeave
+
+
+});

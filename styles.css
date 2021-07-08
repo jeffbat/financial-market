@@ -1,0 +1,113 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* margin: 10px; */
+  background-image: url(https://images.unsplash.com/photo-1569974512262-c58bb9f47f53?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
+}
+
+ul {
+  padding: 10px;
+  margin-top: 0px;
+  background: rgba(5,5,5,0.5);
+  text-align: center;
+  font-size: 20px;
+  font: red;
+}
+
+li {
+  display: inline;
+  padding: 0px 85px 0px 85px;
+}
+
+li a {
+  color: #25A2C4;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+button {
+  background-color: #233134;
+  color: #00FFFF;
+}
+
+
+button:hover {
+  background-color: #C1D308;
+}
+
+
+h1 {
+  color: white;
+  text-shadow: 2px 2px #ff0000;
+  text-align: center;
+}
+
+.container {
+  color: #A3E7F8;
+  background-color: #000C0F;
+  position: relative;
+  min-height: 100%;
+
+}
+
+.footer{
+  display: flex;
+  flex-direction: row;
+  font-size: 8px;
+  font-style: italic;
+  position:fixed;
+  bottom: 0;
+  color: white;
+  margin: 1px 1px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 5% 5%;
+
+
+}
+.footer_text {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: white;
+  margin: 10px;
+}
+
+
+
+.footer_image img {
+  display: inline;
+  margin: 5px;
+  padding: 1px;
+  border-style: solid;;
+  border-color: #59E3FA;
+  max-width: 30px;
+  border-radius: 25% 25%;
+}
+
+#carouseler {
+  width: 720px;
+  height: 400px;
+  overflow: hidden;
+}
+
+#carouseler .carousels {
+  display: block;
+  width: 10000px;
+  height: 1000px;
+  margin: 0;
+  padding: 0;
+}
+
+#carouseler .carousel {
+  float: left;
+  list-style-type: NONE;
+  width: 720px;
+  height: 400px;
+
+}
