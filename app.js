@@ -1,10 +1,9 @@
-$(()=> {
+let companyOwners = {};
 
-
-  $('button').on("click", (event)=>{
+$(() => {
+  $('button').on ("click", (event)=>{
     event.preventDefault();
     const $symbol = $('#symbol');
-    const $buttonValue = $(event.currentTarget).val(); // User clicks a button, then button.value is in the $(event.currentTarget).val();
 
     $.ajax({
       url: 'https://api.fintel.io/web/v/0.0/so/us/' + $symbol.val(),
@@ -18,46 +17,36 @@ $(()=> {
       let $name = incomingData.name;
       let $symbol = incomingData.symbol;
       let $owners = incomingData.owners;
-      let ownerNames= '';
+      companyOwners[$symbol] = $owners;
 
-      for(let i = 0; i < $owners.length; i++){
-        ownerNames += $owners[i].name + '<br/>';
-      }
 
 // -- Step 2: WRITE TO HTML
-      const $div1 = $('<div>');
-      if ($buttonValue === '0') {
-        $div1.html(`Country: ${incomingData.country} <br/>`);
-      } else if ($buttonValue == '1') {
-        $div1.html(`Exchange: ${incomingData.exchange} <br/>`);
-      } else if ($buttonValue == '2') {
-        $div1.html(`Name: ${incomingData.name} <br/>`);
-      } else if ($buttonValue == '3') {
-        $div1.html(`Symbol: ${incomingData.symbol} <br/>`);
-
-      } else if ($buttonValue == '4') {
-        $div1.html(`OwnerNames: ${ownerNames} <br/>`);
-
-      }
-
+      const $div1 = $('<div>')
+        .addClass('company_info');
+      $div1.html (`
+        <div>Country: <div class="company_info_value">${incomingData.country}</div></div>
+        <div>Exchange: <div class="company_info_value">${incomingData.exchange}</div></div>
+        <div>Name: <div class="company_info_value">${incomingData.name}</div></div>
+        <div>Symbol: <div class="company_info_value">${incomingData.symbol}</div></div>`
+      );
+      const viewMore = $('<button>');
+      viewMore.text ('View More');
+      viewMore.attr ('value', $symbol);
+      viewMore.on ('click', (event) => {
+        event.preventDefault ();
+        let symbol = $(event.currentTarget).val();
+        let ownerNames= '';
+        for(let i = 0; i < companyOwners[symbol].length; i++) {
+          ownerNames += companyOwners[symbol][i].name + '<br/>';
+        }
+        $('.owner_container').html (`<div>OwnerNames: ${ownerNames} </div>`);
+        
+      });
+      $div1.append (viewMore);
       $container.append($div1);
     },
     () => {
-        console.log('bad request')
+        console.log('bad request');
     })
-
-  })
+  });
 });
-
-
-
-let width = 720;
-let animationSpeed = 1000;
-let pause = 3000;
-
-let $slider = $('#slider');
-let $slideContainer = $slider.find('.slides');
-
-setInterval(function() {
-  $slider.animate({'margin-left': '-='+width}, animationSpeed);
-}, pause);
