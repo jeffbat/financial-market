@@ -2,7 +2,7 @@
 
 Financial Market App is a web application, designed for institutional and retail investors to see a specific information about publicly traded companies in the US. Users only can enter a symbol (not a full name) of a company, in order to see those information.
 
-In addition, the app is connected with the websites such as; marketwatch.com, coinmarketcap.com, barrons.com for more specific information.
+In addition, the app is connected with the websites such as; marketwatch.com, coinmarketcap.com, and barrons.com for more specific information.
 
 This application was built using HTML, CSS, JS, and JQuery.
 
