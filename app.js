@@ -40,7 +40,7 @@ $(() => {
           ownerNames += companyOwners[symbol][i].name + '<br/>';
         }
         $('.owner_container').html (`<div>OwnerNames: ${ownerNames} </div>`);
-        
+
       });
       $div1.append (viewMore);
       $container.append($div1);
@@ -49,4 +49,11 @@ $(() => {
         console.log('bad request');
     })
   });
+});
+
+
+$(() => {
+  setInterval(() => {
+    $('#slider .slides').animate({'margin-left': '-=720'}, 1000);
+  }, 3000)
 });

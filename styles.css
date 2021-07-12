@@ -217,3 +217,23 @@ body {
   height: 10vh;
 
 } */
+
+#slider{
+  width: 720;
+  height: 400px;
+  overflow: hidden;
+}
+
+#slider .slides {
+  display: block;
+  width: 6000px;
+  margin: 0;
+  padding: 0;
+}
+
+#slider .slide {
+  float: left;
+  list-style-type: none;
+  width: 720;
+  height: 400px;
+}
